@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #8499f8;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #95a4e4;
+  }
