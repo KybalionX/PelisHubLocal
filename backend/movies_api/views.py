@@ -8,9 +8,11 @@ import json
 
 # Create your views here.
 class HelloApiView(APIView):
-    def get(self, request, format=None):
 
-        return Response({'Testing': 'Just a test from this API'})
+    def get(self, request, format=None):
+        return Response({'Testing': 'Just a test from this API'})       
+
+    
 
 class SearchMovie(APIView):
     def get(self, request):
@@ -32,3 +34,6 @@ class Users(APIView):
         return Response({'usuarios': Usuario.objects.values()})
     def post(self, request):
         print("Hiadica")
+
+
+

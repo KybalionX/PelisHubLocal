@@ -89,10 +89,10 @@ WSGI_APPLICATION = 'PelisHub.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'pelishub',
-            'USER': 'blackmage',
-            'PASSWORD': '12345',
-            'HOST': 'localhost',
+            'NAME': 'sql10435976',
+            'USER': 'sql10435976',
+            'PASSWORD': 'BY9jxXYPIy',
+            'HOST': 'sql10.freemysqlhosting.net',
             'PORT': '3306',
         }
     }
