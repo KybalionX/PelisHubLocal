@@ -1,28 +1,51 @@
 .navbar {
     padding: 12px;
-    background-color: rgb(58, 58, 58);
+    background-color: black;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.content {
+.navbar .content {
     display: flex;
 }
 
-.content .tabs {
+.navbar .content .tabs {
     margin: 0px;
     padding: 0px;
+    align-self: center;
 }
 
-.content .tabs ul {
+.navbar .content .tabs ul {
     margin: 0px;
     display: flex;
 }
 
-.content .tabs ul li {
+.navbar .content .tabs ul li {
     color: white;
     list-style-type: none;
     margin: 0px 12px;
+    font-weight: 600;
+}
+
+.navbar .busqueda input{
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.navbar .busqueda button{
+    background-color: #FF9900;
+    border: none;
+    color: black;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.navbar .busqueda button:hover{
+    cursor: pointer;
 }
 
 .card {
