@@ -1,13 +1,13 @@
-<div class="containerCard">
+<div class="containerCard" >
 
     <div class="info">
 
-        <img height="240" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{posterPath}}" alt="">
-        <p>{{title}}</p>
+        <img height="240" src="{{posterPath}}" alt="">
+        <p style="font-weight: 600;">{{title}}</p>
 
     </div>
 
-        <circle-progress [percent]=89></circle-progress>
+        <circle-progress #circleProgress [percent]=vote></circle-progress>
 
 
 </div>

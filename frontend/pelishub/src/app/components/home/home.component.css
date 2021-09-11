@@ -27,24 +27,25 @@ div.scrollmenu {
     white-space: nowrap;
 }
 
-div.scrollmenu div{
+div.scrollmenu div {
     display: inline-block;
     color: white;
 }
 
-div.scrollmenu div card-movie:hover {
-    background-color: #777;
+div.scrollmenu div:hover {
+    color: var(--main-orange);
     cursor: pointer;
 }
 
 ::-webkit-scrollbar {
     width: 1px;
+    height: 10px;
 }
 
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #3d3d3d;
     border-radius: 32px;
 }
 
@@ -55,17 +56,15 @@ div.scrollmenu div card-movie:hover {
     border-radius: 32px;
 }
 
-/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-orange);
+}
 
-.content .subtitle{
+.content .subtitle {
     color: white;
-    margin-left: 21px;
+    font-weight: 600;
 }
 
-.content .containerPopular{
-    margin: 0px 32px;
-}
-
-.content{
+.content {
     margin: 30px;
 }

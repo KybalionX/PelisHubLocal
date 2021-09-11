@@ -1,8 +1,9 @@
 .containerCard{
-    margin: 12px;
+    margin-right: 16px;
     max-width: 180px;
     position: relative;
 }
+
 
 .containerCard .info img{
     width: 100%;
@@ -12,7 +13,6 @@
 
 .containerCard .info p{
     margin-top: 12px;
-    font-weight: 500px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden; 

@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'home',
+    selector: 'movie',
     templateUrl: './movie.component.html'
 })
 

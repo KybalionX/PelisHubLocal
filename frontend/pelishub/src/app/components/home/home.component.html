@@ -12,17 +12,43 @@
 
 </div>
 
-<div  class="content">
-    <h3 class="subtitle">Popular</h3>
-    <div class="containerPopular scrollmenu">
 
-        <div *ngFor="let popular of list">
-            <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['poster_path']}}"  > </card-movie>
+<div class="content" *ngIf="list.length !=0; else loggedOut">
+
+
+
+    <div class="containerPopular">
+        <h3 class="subtitle">Popular</h3>
+        <div class="containerPopular scrollmenu">
+
+            <div *ngFor="let popular of list">
+                <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
+                    valoracion="{{popular['vote_average']}}"> </card-movie>
+            </div>
+
         </div>
-
     </div>
 
-    
+    <br><br><br><br>
+
+    <div class="containerPopular">
+        <h3 class="subtitle">Popular</h3>
+        <div class="containerPopular scrollmenu">
+
+            <div *ngFor="let popular of list">
+                <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
+                    valoracion="{{popular['vote_average']}}"> </card-movie>
+
+            </div>
+
+        </div>
+    </div>
+
 
 
 </div>
+
+<ng-template #loggedOut>
+    <p style="background-color: white; margin: auto; padding: 32px; text-align: center; font-weight: 600;">Cargando
+        Informacion</p>
+</ng-template>

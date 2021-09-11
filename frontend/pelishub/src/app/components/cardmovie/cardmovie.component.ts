@@ -1,5 +1,5 @@
-import { ThrowStmt } from "@angular/compiler";
-import { Component, Input } from "@angular/core";
+import { Component, Input, ViewChild, OnInit } from "@angular/core";
+import { CircleProgressComponent, CircleProgressOptions, NgCircleProgressModule } from "ng-circle-progress";
 
 @Component(
     {
@@ -11,12 +11,23 @@ import { Component, Input } from "@angular/core";
 
 export class CardMovie{
 
+    @ViewChild('circleProgress') circleProgress !: any;
+
     @Input()
     public title : string = "NOTITLE";
     @Input()
     public posterPath : string = "NOIMG";
+    @Input()
+    public valoracion : string = "";
+    @Input()
+    public vote : number = 0;
 
     constructor(){
+        
+    }
+
+    ngAfterContentInit(){
+        this.vote = parseFloat(this.valoracion)*10;
     }
 
 }

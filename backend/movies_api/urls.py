@@ -6,5 +6,6 @@ urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
     path('search/', views.SearchMovie.as_view()),
     path('movie/', views.GetMovie.as_view()),
-    path('users/', views.Users.as_view())
+    path('movie/popular/', views.Trending.as_view()),
+    path('users/', views.Users.as_view()),
 ]

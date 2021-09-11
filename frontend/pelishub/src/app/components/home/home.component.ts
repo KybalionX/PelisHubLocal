@@ -11,6 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HomeComponent {
 
+
     
     li: any;
     list = [];
@@ -28,14 +29,16 @@ export class HomeComponent {
     }
 
     getPopular() {
-        var url = "https://api.themoviedb.org/3/movie/popular?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es&page=1"
+        console.log("Value list"+this.list.length)
+        var url = "http://localhost:8000/api/movie/popular/"
         this.http.get(url)
             .subscribe(Response => {
                 this.li = Response;
-                this.list = this.li.results;
+                this.list = this.li.data.results;
                 console.log(this.list);
-                
             });
     }
+
+    
 
 }

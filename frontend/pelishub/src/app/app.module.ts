@@ -14,12 +14,12 @@ import { CardMovie } from './components/cardmovie/cardmovie.component';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+import { NgxShimmerLoadingModule } from  'ngx-shimmer-loading';
 
 const CircleProgress = NgCircleProgressModule.forRoot({
   "unitsFontWeight": "700",
   "titleFontWeight": "700",
   "backgroundColor": "#ff9900",
-  "backgroundStroke": "#ffffff",
   "backgroundStrokeWidth": 0,
   "backgroundPadding": 5,
   "radius": 15,
@@ -28,7 +28,7 @@ const CircleProgress = NgCircleProgressModule.forRoot({
   "unitsFontSize": "10",
   "unitsColor": "#000000",
   "outerStrokeWidth": 3,
-  "outerStrokeColor": "#FFFFFF",
+  "outerStrokeColor": "#FFF",
   "outerStrokeGradientStopColor": "#ffffff",
   "innerStrokeColor": "#FFFFFF",
   "innerStrokeWidth": 50,
@@ -55,7 +55,8 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CircleProgress
+    CircleProgress,
+    NgxShimmerLoadingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
