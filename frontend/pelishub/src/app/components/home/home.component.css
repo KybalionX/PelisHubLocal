@@ -1,0 +1,71 @@
+.containerHeader {
+    width: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 59%, rgba(0, 0, 0, 0.4709976798143851) 100%);
+    display: inline-flex;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.containerHeader img {
+    display: block;
+    margin-left: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.containerHeader .info {
+    margin-bottom: 120px;
+    margin-left: 40px;
+    margin-right: 80px;
+    margin-top: 5%;
+    color: white;
+}
+
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu div{
+    display: inline-block;
+    color: white;
+}
+
+div.scrollmenu div card-movie:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 32px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-orange);
+    border-radius: 32px;
+}
+
+/* Handle on hover */
+
+.content .subtitle{
+    color: white;
+    margin-left: 21px;
+}
+
+.content .containerPopular{
+    margin: 0px 32px;
+}
+
+.content{
+    margin: 30px;
+}

@@ -1,0 +1,28 @@
+<div class="containerHeader">
+
+
+    <div class="info">
+        <h3>Todo lo que necesitas saber</h3>
+        <h5>sobre las peliculas que mas te gustan</h5>
+        <h5>está aquí</h5>
+    </div>
+
+    <img src="https://play-lh.googleusercontent.com/i8F_nMjhXao8_bTeHofrUDZk-i00FxuQMeDrATexcu5WPcvGM7OoUwdA3ooSLhi4YzE-RB9_fBsvGXe1qLQ"
+        alt="">
+
+</div>
+
+<div  class="content">
+    <h3 class="subtitle">Popular</h3>
+    <div class="containerPopular scrollmenu">
+
+        <div *ngFor="let popular of list">
+            <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['poster_path']}}"  > </card-movie>
+        </div>
+
+    </div>
+
+    
+
+
+</div>

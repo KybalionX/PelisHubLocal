@@ -12,7 +12,6 @@ class HelloApiView(APIView):
     def get(self, request, format=None):
         return Response({'Testing': 'Just a test from this API'})       
 
-    
 
 class SearchMovie(APIView):
     def get(self, request):
