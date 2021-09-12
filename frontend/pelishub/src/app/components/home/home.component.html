@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="content" *ngIf="list.length !=0; else loggedOut">
+<div class="content" *ngIf="listPopular.length !=0; else loggedOut">
 
 
 
@@ -21,7 +21,7 @@
         <h3 class="subtitle">Popular</h3>
         <div class="containerPopular scrollmenu">
 
-            <div *ngFor="let popular of list">
+            <div *ngFor="let popular of listPopular">
                 <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
                     valoracion="{{popular['vote_average']}}"> </card-movie>
             </div>
@@ -31,18 +31,6 @@
 
     <br><br><br><br>
 
-    <div class="containerPopular">
-        <h3 class="subtitle">Popular</h3>
-        <div class="containerPopular scrollmenu">
-
-            <div *ngFor="let popular of list">
-                <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
-                    valoracion="{{popular['vote_average']}}"> </card-movie>
-
-            </div>
-
-        </div>
-    </div>
 
 
 

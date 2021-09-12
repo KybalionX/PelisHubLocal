@@ -11,10 +11,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HomeComponent {
 
-
-    
-    li: any;
-    list = [];
+    responsePopular: any;
+    listPopular = [];
 
     constructor(private http: HttpClient) {
 
@@ -29,16 +27,13 @@ export class HomeComponent {
     }
 
     getPopular() {
-        console.log("Value list"+this.list.length)
         var url = "http://localhost:8000/api/movie/popular/"
         this.http.get(url)
             .subscribe(Response => {
-                this.li = Response;
-                this.list = this.li.data.results;
-                console.log(this.list);
+                this.responsePopular = Response;
+                this.listPopular = this.responsePopular.data.results;
             });
     }
-
     
 
 }
