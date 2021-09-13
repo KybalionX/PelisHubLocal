@@ -45,6 +45,19 @@ class Trending(APIView):
         elif type == "week":
             response = requests.get("https://api.themoviedb.org/3/trending/movie/week?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es")
         data = response.json();        
+
+        for item in data['results']:
+            item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+item['poster_path']
+        
+        return Response({"data": data})
+
+class Proximo(APIView):
+    def get(self, request):
+        page = request.GET.get('page')
+        response = requests.get("https://api.themoviedb.org/3/movie/upcoming?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es&page="+page)
+        data = response.json()
+        for item in data['results']:
+            item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+item['poster_path']
         return Response({"data": data})
 
         

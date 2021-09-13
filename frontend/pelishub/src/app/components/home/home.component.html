@@ -29,8 +29,29 @@
         </div>
     </div>
 
-    <br><br><br><br>
+    <br><br>
 
+
+
+    <div class="containerTrending">
+        <h3 class="subtitle">Trending</h3>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label id="toggleTrending" (click)="changeTrendingType('hoy')" class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Hoy
+            </label>
+            <label id="toggleTrending" (click)="changeTrendingType('semana')" class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Semana
+            </label>
+        </div>
+        <div class="containerPopular scrollmenu">
+
+            <div *ngFor="let trend of listTrending">
+                <card-movie style="z-index: -2;" title="{{trend['title']}}" posterPath="{{trend['enlacePoster']}}"
+                    valoracion="{{trend['vote_average']}}"> </card-movie>
+            </div>
+
+        </div>
+    </div>
 
 
 

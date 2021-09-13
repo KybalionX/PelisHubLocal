@@ -68,3 +68,9 @@ div.scrollmenu div:hover {
 .content {
     margin: 30px;
 }
+
+#toggleTrending.active{
+    background-color: var(--main-orange);
+    color: #000;
+    font-weight: 600;
+}

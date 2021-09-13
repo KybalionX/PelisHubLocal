@@ -8,5 +8,6 @@ urlpatterns = [
     path('movie/', views.GetMovie.as_view()),
     path('movie/trending/', views.Trending.as_view()),
     path('movie/popular/', views.MoviePopular.as_view()),
+    path('movie/proximo/', views.Proximo.as_view()),
     path('users/', views.Users.as_view()),
 ]

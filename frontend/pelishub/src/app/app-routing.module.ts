@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { Proximos } from './components/proximos/proximos.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "movie",
-    component: MovieComponent
+    path: "proximos",
+    component: Proximos
   },
   {path: "**", redirectTo: ''}
 ];
