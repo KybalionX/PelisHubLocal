@@ -1,3 +1,4 @@
+
 from django.http import response, JsonResponse
 from django.shortcuts import render
 from rest_framework.views import APIView, Response
@@ -57,7 +58,11 @@ class Proximo(APIView):
         response = requests.get("https://api.themoviedb.org/3/movie/upcoming?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es&page="+page)
         data = response.json()
         for item in data['results']:
-            item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+item['poster_path']
+            if item['poster_path'] is None:
+                print("None encontrado")
+                item['enlacePoster'] = "assets/resources/NoPoster.png"
+            else:
+                item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+str(item['poster_path'])
         return Response({"data": data})
 
         

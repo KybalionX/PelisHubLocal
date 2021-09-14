@@ -11,10 +11,12 @@ import { NavBar } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CardMovie } from './components/cardmovie/cardmovie.component';
+import { Proximos } from './components/proximos/proximos.component';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { NgxShimmerLoadingModule } from  'ngx-shimmer-loading';
+
 
 const CircleProgress = NgCircleProgressModule.forRoot({
   "unitsFontWeight": "700",
@@ -49,7 +51,8 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     NavBar,
     HomeComponent,
     MovieComponent,
-    CardMovie
+    CardMovie,
+    Proximos
   ],
   imports: [
     BrowserModule,

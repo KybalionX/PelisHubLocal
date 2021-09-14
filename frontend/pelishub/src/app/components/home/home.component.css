@@ -30,12 +30,15 @@ div.scrollmenu {
 div.scrollmenu div {
     display: inline-block;
     color: white;
+    transition: margin 0.4s;
 }
 
 div.scrollmenu div:hover {
+    margin: 0px 18px;
     color: var(--main-orange);
     cursor: pointer;
 }
+
 
 ::-webkit-scrollbar {
     width: 1px;

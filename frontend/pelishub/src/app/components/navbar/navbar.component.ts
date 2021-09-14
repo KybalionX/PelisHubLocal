@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppRoutingModule } from "src/app/app-routing.module";
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
 @Component({
     selector: "navbar",
@@ -11,13 +13,35 @@ export class NavBar {
 
     li!: any;
     list = [];
-    @Input() msg : any;
-    num : any;
+    @Input() msg: any;
+    num: any;
 
-    selected : number = 0;
+    selected: number = 0;
 
-    constructor(private http: HttpClient) {
-        console.log("Hiadica Pentacle Navbar: "+this.msg)
+    constructor(private http: HttpClient, private router: Router) {
+        this.router.events.subscribe((event: Event) => {
+
+            if (event instanceof NavigationEnd) {
+                // Hide loading indicator
+                var url = event.url;
+                switch (url) {
+                    case "/":
+                        this.ClickedNavbar(0);
+                        break;
+                    case "/proximos":
+                        this.ClickedNavbar(1);
+                        break;
+                    default:
+                        this.ClickedNavbar(0);
+                }
+            }
+
+            if (event instanceof NavigationError) {
+                // Hide loading indicator
+                console.log("Error navigation")
+                // Present error to user
+            }
+        });
     }
 
     public open() {
@@ -33,14 +57,14 @@ export class NavBar {
     public ShowResponse(Respuesta: Object) {
         //console.log(Respuesta);
         //console.log(JSON.parse(JSON.stringify(Respuesta)).data_movie.results);
-        
+
         this.li = Respuesta;
         this.list = this.li.data_movie.results;
         console.log(this.li.data_movie)
         console.log(this.list.length)
     }
 
-    public ClickedNavbar(Selected : number){
+    public ClickedNavbar(Selected: number) {
         this.selected = Selected;
     }
 
