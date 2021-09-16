@@ -17,6 +17,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { NgxShimmerLoadingModule } from  'ngx-shimmer-loading';
 
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const CircleProgress = NgCircleProgressModule.forRoot({
   "unitsFontWeight": "700",
@@ -60,6 +61,7 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     HttpClientModule,
     CircleProgress,
     NgxShimmerLoadingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,13 +6,27 @@
 
       <div class="row justify-content-start" >
 
-        <div style="margin-right: 8px;" class="col" *ngFor="let popular of listProximos">
+        <div style="margin-right: 8px;" class="col" *ngFor="let popular of listProximos | paginate: { itemsPerPage: 20, currentPage: p }">
           <card-movie title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
             valoracion="{{popular['vote_average']}}"> </card-movie>
         </div>
 
       </div>
   </div>
+  <br>
+
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" >Previous</a></li>
+      <li class="page-item"><a class="page-link" >1</a></li>
+      <li class="page-item"><a class="page-link" >2</a></li>
+      <li class="page-item"><a class="page-link" >3</a></li>
+      <li class="page-item"><a class="page-link" >Next</a></li>
+    </ul>
+  </nav>
 
   <button (click)="mostrarMas()"> Mostrar mas </button>
 </div>

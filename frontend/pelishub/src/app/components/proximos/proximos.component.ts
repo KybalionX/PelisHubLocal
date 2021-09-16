@@ -12,13 +12,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class Proximos {
 
 
+    p : number = 0;
+
     responseProximos: any;
     listProximos = [];
 
     page : number = 1;
 
     constructor(private http: HttpClient) {
-
+        
     }
 
     ngOnInit(): void {
