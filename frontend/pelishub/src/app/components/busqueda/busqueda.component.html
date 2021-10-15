@@ -1,38 +1,19 @@
-<div class="navbar">
-
-    <div class="content">
-        <img src="assets/resources/Icon.png" alt="" srcset="">
-        <div class="tabs">
-            <ul>
-                <li>Inicio</li>
-                <li>Recursos</li>
-                <li>Nosotros</li>
-                <li>xd lol</li>
-            </ul>
-        </div>
+<div class="content">
+    <h3 style="color: white;">Resultado de la búsqueda</h3>
+  
+    <div class="container">
+  
+  
+          <div style="margin-right: 8px;" *ngFor="let popular of list">
+            <!--
+            <card-movie title="{{popular['title']}} {{popular['original_name']}}" posterPath="{{popular['enlacePoster']}}"
+              valoracion="{{popular['vote_average']}}"> </card-movie>
+              -->
+              <card-result-movie title="{{popular['title']}} {{popular['original_name']}}" movieID="{{popular['id']}}" description="{{popular['overview']}}"  posterPath="{{popular['enlacePoster']}}"></card-result-movie>
+          </div>
+  
     </div>
-
-    <div class="busqueda">
-        <input placeholder="Buscar..." id="inputBusqueda" type="text">
-        <button  (click)="open()">Buscar</button>
-    </div>
-
-
-</div>
-
-<div id="MyResponse" *ngIf="list.length != 0">
-
-    <div class="card" *ngFor="let e of list;">
-        <img 
-        src = "https://www.themoviedb.org/t/p/w220_and_h330_face/{{e['poster_path']}}"
-        class="img-responsive" 
-        > 
-
-        <div class="content">
-            <h3>{{ e["title"] || e["name"] }}</h3>
-            <p>{{ e["overview"] }}</p>
-        </div>
-
-    </div>
-
-</div>
+    <br>
+  
+  
+  </div>

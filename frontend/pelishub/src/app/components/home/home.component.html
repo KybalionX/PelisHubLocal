@@ -2,13 +2,12 @@
 
 
     <div class="info">
-        <h3>Todo lo que necesitas saber</h3>
-        <h5>sobre las peliculas que mas te gustan</h5>
-        <h5>está aquí</h5>
+        <h1>Todo lo que necesitas saber</h1>
+        <h3>sobre las peliculas que mas te gustan</h3>
+        <h3>está aquí</h3>
     </div>
 
-    <img src="https://play-lh.googleusercontent.com/i8F_nMjhXao8_bTeHofrUDZk-i00FxuQMeDrATexcu5WPcvGM7OoUwdA3ooSLhi4YzE-RB9_fBsvGXe1qLQ"
-        alt="">
+    
 
 </div>
 
@@ -22,7 +21,7 @@
         <div class="containerPopular scrollmenu">
 
             <div *ngFor="let popular of listPopular">
-                <card-movie style="z-index: -2;" title="{{popular['title']}}" posterPath="{{popular['enlacePoster']}}"
+                <card-movie style="z-index: -2;" title="{{popular['title']}}" movieID="{{popular['id']}}" posterPath="{{popular['enlacePoster']}}"
                     valoracion="{{popular['vote_average']}}"> </card-movie>
             </div>
 
@@ -34,15 +33,19 @@
 
 
     <div class="containerTrending">
-        <h3 class="subtitle">Trending</h3>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label id="toggleTrending" (click)="changeTrendingType('hoy')" class="btn btn-secondary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Hoy
-            </label>
-            <label id="toggleTrending" (click)="changeTrendingType('semana')" class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Semana
-            </label>
+        <div style="display: flex; margin-bottom: 18px;" class="title">
+            <h3 class="subtitle">Trending</h3>
+
+            <div style="margin-left: 21px;" class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label id="toggleTrending" (click)="changeTrendingType('hoy')" class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Hoy
+                </label>
+                <label id="toggleTrending" (click)="changeTrendingType('semana')" class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Semana
+                </label>
+            </div>
         </div>
+        
         <div class="containerPopular scrollmenu">
 
             <div *ngFor="let trend of listTrending">

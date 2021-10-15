@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: "busqueda",
@@ -12,28 +13,38 @@ export class Busqueda {
     li!: any;
     list = [];
 
-    constructor(private http: HttpClient) {
+    buscar: any = "";
+
+    constructor(private http: HttpClient, private route: ActivatedRoute,) {
 
     }
 
-    public open() {
-        var num1 = ((document.getElementById("inputBusqueda") as HTMLInputElement).value);
-        var busqueda = "http://127.0.0.1:8000/api/search/?search=" + num1
-        this.http.get(busqueda)
-            .subscribe(Response => {
-                this.ShowResponse(Response)
-            });
+    ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+            this.buscar = params.get('buscar');
+            console.log("PARAMS: " + this.buscar);
+
+            var busqueda = "https://pelishub.pythonanywhere.com/api/search/?search=" + this.buscar;
+            this.http.get(busqueda)
+                    .toPromise()
+                    .then(response => {
+                        this.showBusqueda(response);
+                    })
+                    .catch(error => {
+                        console.error("Error obteniendo popular: ");
+                        throw new Error(error);
+                    });
+                
+        });
 
     }
 
-    public ShowResponse(Respuesta: Object) {
-        //console.log(Respuesta);
-        //console.log(JSON.parse(JSON.stringify(Respuesta)).data_movie.results);
-        
-        this.li = Respuesta;
+
+    public showBusqueda(respuesta: Object) {
+        this.li = respuesta;
         this.list = this.li.data_movie.results;
-        console.log(this.li.data_movie)
-        console.log(this.list.length)
+        console.log(this.list)
     }
+
 
 }

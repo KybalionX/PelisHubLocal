@@ -1,30 +1,32 @@
-.containerCard{
-    margin-right: 16px;
+.containerCard {
+    margin: 0px 8px;
     width: 160px;
+    color: white;
     position: relative;
-    transition: width 0.5s;
+    transition: margin 0.4s, width 0.4s;
 }
 
-.containerCard:hover{
-    margin-right: 16px;
+.containerCard:hover {
+    margin: 0px 18px;
+    color: var(--main-orange);
+    cursor: pointer;
     width: 180px;
-    position: relative;
 }
 
-.containerCard .info img{
+.containerCard .info img {
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.containerCard .info p{
+.containerCard .info p {
     margin-top: 12px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-circle-progress{
+circle-progress {
     margin: 4px;
     position: absolute;
     top: 0;

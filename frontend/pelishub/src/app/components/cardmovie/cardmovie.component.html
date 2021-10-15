@@ -1,4 +1,4 @@
-<div class="containerCard" >
+<div (click)="clicked()" class="containerCard">
 
     <div class="info">
 
@@ -7,10 +7,17 @@
 
     </div>
 
-        <div *ngIf="vote != 0">
-            <circle-progress #circleProgress [percent]=vote></circle-progress>
-        </div>
-        
+    <div *ngIf="vote != 0">
 
+        <circle-progress #circleProgress [percent]=vote>
+
+        </circle-progress>
+    </div>
+
+
+    
+  
+ 
 
 </div>
+

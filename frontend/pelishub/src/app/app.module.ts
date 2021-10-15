@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http';
-
 import { Busqueda } from './components/busqueda/busqueda.component';
 import { NavBar } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CardMovie } from './components/cardmovie/cardmovie.component';
 import { Proximos } from './components/proximos/proximos.component';
-
+import { cardResultMovie } from './components/cardResultMovie/cardResultMovie.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
-import { NgxShimmerLoadingModule } from  'ngx-shimmer-loading';
-
 import { NgxPaginationModule } from 'ngx-pagination';
+
+import { AngularFireModule } from '@angular/fire';
+
+import { environment } from 'src/environments/environment';
+
 
 const CircleProgress = NgCircleProgressModule.forRoot({
   "unitsFontWeight": "700",
@@ -53,17 +54,21 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     HomeComponent,
     MovieComponent,
     CardMovie,
-    Proximos
+    Proximos,
+    cardResultMovie
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CircleProgress,
-    NgxShimmerLoadingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: PathLocationStrategy 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

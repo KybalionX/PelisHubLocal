@@ -31,6 +31,9 @@ export class NavBar {
                     case "/proximos":
                         this.ClickedNavbar(1);
                         break;
+                    case "/":
+                        this.ClickedNavbar(0);
+                        break;
                     default:
                         this.ClickedNavbar(0);
                 }
@@ -45,11 +48,16 @@ export class NavBar {
     }
 
     public open() {
+
         var num1 = ((document.getElementById("inputBusqueda") as HTMLInputElement).value);
-        var busqueda = "http://127.0.0.1:8000/api/search/?search=" + num1
+
+        this.router.navigate(['/busqueda/' + num1]);
+
+
+        var busqueda = "https://blackmage.pythonanywhere.com/api/search/?search=" + num1;
         this.http.get(busqueda)
             .subscribe(Response => {
-                console.log(Response)
+                console.log(Response);
             });
 
     }

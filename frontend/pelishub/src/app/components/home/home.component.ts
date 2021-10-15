@@ -27,41 +27,56 @@ export class HomeComponent {
         this.getTrending();
     }
 
+
     getPopular() {
-        var url = "http://localhost:8000/api/movie/popular/"
+
+        var url = "https://pelishub.pythonanywhere.com/api/movie/popular/"
         this.http.get(url)
-            .subscribe(Response => {
-                this.responsePopular = Response;
+            .toPromise()
+            .then(response => {
+                this.responsePopular = response;
                 this.listPopular = this.responsePopular.data.results;
+            })
+            .catch(error => {
+                console.error("Error obteniendo popular: ");
+                throw new Error(error);
             });
+
     }
 
     getTrending() {
-        var url = "http://127.0.0.1:8000/api/movie/trending/?type=day"
+        var url = "https://pelishub.pythonanywhere.com/api/movie/trending/?type=day"
         this.http.get(url)
-            .subscribe(Response => {
-                this.responseTrending = Response;
+            .toPromise()
+            .then(response => {
+                this.responseTrending = response;
                 this.listTrending = this.responseTrending.data.results;
+            })
+            .catch(error => {
+                console.error("Error obteniendo Trending: ");
+                throw new Error(error);
             });
     }
 
     changeTrendingType(type: string) {
 
-        if (type == 'hoy') {
-            var url = "http://127.0.0.1:8000/api/movie/trending/?type=day"
-            this.http.get(url)
-                .subscribe(Response => {
-                    this.responseTrending = Response;
-                    this.listTrending = this.responseTrending.data.results;
-                });
-        } else {
-            var url = "http://127.0.0.1:8000/api/movie/trending/?type=week"
-            this.http.get(url)
-                .subscribe(Response => {
-                    this.responseTrending = Response;
-                    this.listTrending = this.responseTrending.data.results;
-                });
-        }
+        var url = "";
+
+        url = type == 'hoy' ?
+            'https://pelishub.pythonanywhere.com/api/movie/trending/?type=day'
+            : 'https://pelishub.pythonanywhere.com/api/movie/trending/?type=week';
+
+
+        this.http.get(url)
+            .toPromise()
+            .then(response => {
+                this.responseTrending = response;
+                this.listTrending = this.responseTrending.data.results;
+            })
+            .catch(error => {
+                console.error("Error obteniendo Trending: ");
+                throw new Error(error);
+            });
 
     }
 

@@ -1,25 +1,26 @@
-.containerHeader {
-    width: 100%;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 59%, rgba(0, 0, 0, 0.4709976798143851) 100%);
-    display: inline-flex;
-    max-height: 300px;
+.containerHeader{
+    position: relative;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.747) , rgba(0, 0, 0, 0.479) ), url("https://wallpapercave.com/wp/wp383267.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
     overflow: hidden;
 }
 
-.containerHeader img {
-    display: block;
-    margin-left: auto;
-    z-index: -1;
-    object-fit: cover;
+.containerHeader .info{
+    color: white;
+    margin: 30px 30px;
+    width: 100%;
+    height: 100%;            
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.containerHeader .info {
-    margin-bottom: 120px;
-    margin-left: 40px;
-    margin-right: 80px;
-    margin-top: 5%;
-    color: white;
+.containerHeader img{
+    display: block;
+    margin-left: auto;
 }
 
 div.scrollmenu {
@@ -29,15 +30,8 @@ div.scrollmenu {
 
 div.scrollmenu div {
     display: inline-block;
-    color: white;
-    transition: margin 0.4s;
 }
 
-div.scrollmenu div:hover {
-    margin: 0px 18px;
-    color: var(--main-orange);
-    cursor: pointer;
-}
 
 
 ::-webkit-scrollbar {
@@ -72,7 +66,7 @@ div.scrollmenu div:hover {
     margin: 30px;
 }
 
-#toggleTrending.active{
+#toggleTrending.active {
     background-color: var(--main-orange);
     color: #000;
     font-weight: 600;

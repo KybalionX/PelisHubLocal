@@ -9,25 +9,34 @@ import { CircleProgressComponent, CircleProgressOptions, NgCircleProgressModule 
     }
 )
 
-export class CardMovie{
+export class CardMovie {
 
     @ViewChild('circleProgress') circleProgress !: any;
 
     @Input()
-    public title : string = "NOTITLE";
+    public title: string = "NOTITLE";
     @Input()
-    public posterPath : string = "NOIMG";
+    public posterPath: string = "NOIMG";
     @Input()
-    public valoracion : string = "";
+    public valoracion: string = "";
     @Input()
-    public vote : number = 0;
+    public movieID: string = "";
+    @Input()
+    public vote: number = 0;
 
-    constructor(){
-        
+    constructor() {
+
     }
 
-    ngAfterContentInit(){
-        this.vote = parseFloat(this.valoracion)*10;
+    ngOnInit() {
+    }
+
+    ngAfterContentInit() {
+        this.vote = parseFloat(this.valoracion) * 10;
+    }
+
+    clicked() {
+        console.log("hello")
     }
 
 }

@@ -1,0 +1,35 @@
+
+.content .header {
+    position: relative;
+    color: white;
+}
+
+.content .header .backdrop {
+    opacity: 0.3;
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+}
+
+.content .header .info {
+    padding: 12px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    min-width: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.content .header .info .poster{
+    border-radius: 8px;
+}
+
+.content .header .info .description{
+    margin: 0px 12px;
+}
+
+.content .header .info .description .categorias{
+    opacity: 0.6;
+}
