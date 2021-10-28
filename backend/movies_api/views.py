@@ -4,30 +4,46 @@ from django.shortcuts import render
 from rest_framework.views import APIView, Response
 from movies_api.models import Usuario
 from django.core import serializers
-import requests 
+import requests
 import json
 
 # Create your views here.
 class HelloApiView(APIView):
 
     def get(self, request, format=None):
-        return Response({'Testing': 'Just a test from this API'})       
+        return Response({'Testing': 'Just a test from this API'})
 
 
 class SearchMovie(APIView):
     def get(self, request):
         search = request.query_params["search"]
-        response = requests.get("https://api.themoviedb.org/3/search/multi?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es&query="+search)
+        response = requests.get("https://api.themoviedb.org/3/search/movie?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es&query="+search)
         data = response.json()
-        
+
+        for item in data['results']:
+            if 'poster_path' in item:
+                if item['poster_path'] is None:
+                    item['enlacePoster'] = "assets/resources/NoPoster.png"
+                else:
+                    item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+str(item['poster_path'])
+            else:
+                    item['enlacePoster'] = "OnePack"
+                    continue
+
         return Response({'search': search , 'data_movie': data})
 
 class GetMovie(APIView):
     def get(self, request,id=None, *args, **kwargs):
         id = request.query_params['id']
         response = requests.get("https://api.themoviedb.org/3/movie/"+id+"?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es")
-        return Response({'search': response.json()
-        })
+
+        data = response.json()
+        data['imagenBackground'] = "https://themoviedb.org/t/p/w1920_and_h800_multi_faces"+data['backdrop_path']
+
+
+        data['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+data['poster_path']
+
+        return Response({'search': data})
 
 class MoviePopular(APIView):
     def get(self, request):
@@ -45,11 +61,11 @@ class Trending(APIView):
             response = requests.get("https://api.themoviedb.org/3/trending/movie/day?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es")
         elif type == "week":
             response = requests.get("https://api.themoviedb.org/3/trending/movie/week?api_key=c3519dc03ba1de5a4c499a0b89386039&language=es")
-        data = response.json();        
+        data = response.json();
 
         for item in data['results']:
             item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+item['poster_path']
-        
+
         return Response({"data": data})
 
 class Proximo(APIView):
@@ -65,7 +81,7 @@ class Proximo(APIView):
                 item['enlacePoster'] = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2"+str(item['poster_path'])
         return Response({"data": data})
 
-        
+
 class Users(APIView):
     def get(self, request,id=None, *args, **kwargs):
         return Response({'usuarios': Usuario.objects.values()})

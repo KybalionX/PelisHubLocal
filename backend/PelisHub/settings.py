@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-4@)6q9e%(xvlb=ubb8m^)c)#&jese!j^f1aju8bwnml*w#5zp3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["blackmage.pythonanywhere.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -58,9 +59,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200',
-)
 
 ROOT_URLCONF = 'PelisHub.urls'
 
@@ -87,14 +85,14 @@ WSGI_APPLICATION = 'PelisHub.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'Blackmage$pelishub',
-            'USER': 'Blackmage',
-            'PASSWORD': 'antiicon',
-            'HOST': 'Blackmage.mysql.pythonanywhere-services.com',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Pelishub$pelishub',
+        'USER': 'Pelishub',
+        'PASSWORD': 'pelishubproject',
+        'HOST': 'Pelishub.mysql.pythonanywhere-services.com',
     }
+}
 
 
 # Password validation
@@ -133,7 +131,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+STATIC_ROOT = '/home/Pelishub/PelisHub/backend/static'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
