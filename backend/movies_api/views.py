@@ -84,7 +84,21 @@ class Proximo(APIView):
 
 class Users(APIView):
     def get(self, request,id=None, *args, **kwargs):
-        return Response({'usuarios': Usuario.objects.values()})
+        gid = request.GET.get('id')
+
+        if gid is None:
+            return Response({'usuarios': Usuario.objects.values()})
+        else:
+            usuario = Usuario.objects.all().filter(id=gid)
+            result = []
+            for u in usuario:
+                data = {}
+                data['nombre_usuario'] = u.nombre_usuario
+                data['correo'] = u.correo
+                data['telefono'] = u.telefono
+                result.append(data)
+            return Response({ 'usuarios':  result})
+
     def post(self, request):
         print("Hiadica")
 

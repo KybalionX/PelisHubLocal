@@ -5,7 +5,7 @@ from movies_api.models import Usuario
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields('NombreUsuario', 'Correo', 'Telefono', 'Contraseña', 'Imagen')
+        fields('NombreUsuario', 'Correo', 'Telefono', 'Contraseña')
 
 """
     nombre_usuario = models.CharField(max_length=200)

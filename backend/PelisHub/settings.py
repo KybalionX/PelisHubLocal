@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'movies_api',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,13 +88,14 @@ WSGI_APPLICATION = 'PelisHub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Pelishub$pelishub',
-        'USER': 'Pelishub',
-        'PASSWORD': 'pelishubproject',
-        'HOST': 'Pelishub.mysql.pythonanywhere-services.com',
+        'NAME': 'Blackmage$Pelishub',
+        'USER': 'Blackmage',
+        'PASSWORD': 'f18d3162ee33',
+        'HOST': 'Blackmage.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -132,12 +137,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-STATIC_ROOT = '/home/Pelishub/PelisHub/backend/static'
+STATIC_ROOT = '/home/Blackmage/PelisHub/backend/static'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
