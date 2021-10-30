@@ -24,7 +24,7 @@ export class Busqueda {
             this.buscar = params.get('buscar');
             console.log("PARAMS: " + this.buscar);
 
-            var busqueda = "https://pelishub.pythonanywhere.com/api/search/?search=" + this.buscar;
+            var busqueda = "https://blackmage.pythonanywhere.com/api/search/?search=" + this.buscar;
             this.http.get(busqueda)
                     .toPromise()
                     .then(response => {

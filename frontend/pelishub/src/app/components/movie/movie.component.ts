@@ -27,7 +27,7 @@ export class MovieComponent {
         this.route.paramMap.subscribe(params => {
             this.movieID = params.get('movieID');
             console.log("ID MOVIE: " + this.movieID);
-            var busqueda = "https://pelishub.pythonanywhere.com/api/movie/?id=" + this.movieID;
+            var busqueda = "https://blackmage.pythonanywhere.com/api/movie/?id=" + this.movieID;
             this.http.get(busqueda)
                 .subscribe(Response => {
                     this.movie = Response;

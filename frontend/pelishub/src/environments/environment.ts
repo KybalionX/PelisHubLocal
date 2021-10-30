@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC7T9D5yp4zyLOo8K5VXTfYenqKVALspvg",
-    authDomain: "pelishub-1691e.firebaseapp.com",
-    projectId: "pelishub-1691e",
-    storageBucket: "pelishub-1691e.appspot.com",
-    messagingSenderId: "255883633710",
-    appId: "1:255883633710:web:316cd55ae2098d4a0debbf"
+    apiKey: "AIzaSyA0Yr3x156bjytPcS_U3Y1af5yQCjdP0zY",
+    authDomain: "pelishub-76dac.firebaseapp.com",
+    projectId: "pelishub-76dac",
+    storageBucket: "pelishub-76dac.appspot.com",
+    messagingSenderId: "806653724217",
+    appId: "1:806653724217:web:1442c559eb2d55c9842fe8"
   }
 };
 

@@ -30,7 +30,7 @@ export class HomeComponent {
 
     getPopular() {
 
-        var url = "https://pelishub.pythonanywhere.com/api/movie/popular/"
+        var url = "https://blackmage.pythonanywhere.com/api/movie/popular/"
         this.http.get(url)
             .toPromise()
             .then(response => {
@@ -45,7 +45,7 @@ export class HomeComponent {
     }
 
     getTrending() {
-        var url = "https://pelishub.pythonanywhere.com/api/movie/trending/?type=day"
+        var url = "https://blackmage.pythonanywhere.com/api/movie/trending/?type=day"
         this.http.get(url)
             .toPromise()
             .then(response => {
@@ -63,8 +63,8 @@ export class HomeComponent {
         var url = "";
 
         url = type == 'hoy' ?
-            'https://pelishub.pythonanywhere.com/api/movie/trending/?type=day'
-            : 'https://pelishub.pythonanywhere.com/api/movie/trending/?type=week';
+            'https://blackmage.pythonanywhere.com/api/movie/trending/?type=day'
+            : 'https://blackmage.pythonanywhere.com/api/movie/trending/?type=week';
 
 
         this.http.get(url)
