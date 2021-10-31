@@ -8,5 +8,14 @@ class UsuarioAdmin(admin.ModelAdmin):
         'telefono',
     ]
 
+class UsuarioComentarioAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'usuario',
+        'comentario',
+    ]
+
 # Register your models here.
 admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(UsuarioComentario, UsuarioComentarioAdmin)
+admin.site.register(UsuarioValoracion)

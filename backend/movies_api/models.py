@@ -8,10 +8,16 @@ class Usuario(models.Model):
     telefono = models.CharField(max_length=200)
     contraseña = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.nombre_usuario
+
 class UsuarioComentario(models.Model):
     usuario = ForeignKey(Usuario, related_name="comentario_usuario", on_delete=models.CASCADE)
     comentario = models.CharField(max_length=200)
     fecha = models.DateField(blank=True, default='', null=True)
+
+    def __str__(self):
+        return self.id
 
 
 class UsuarioValoracion(models.Model):
@@ -19,3 +25,6 @@ class UsuarioValoracion(models.Model):
     pelicula = models.IntegerField()
     comentario = models.CharField(max_length=200)
     fecha = models.DateField(blank=True, default='', null=True)
+
+    def __str__(self):
+        return self.id
