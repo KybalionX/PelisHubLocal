@@ -11,7 +11,10 @@ import { MovieComponent } from './components/movie/movie.component';
 import { CardMovie } from './components/cardmovie/cardmovie.component';
 import { Proximos } from './components/proximos/proximos.component';
 import { cardResultMovie } from './components/cardResultMovie/cardResultMovie.component';
+import { Login } from './components/login/login.component';
+import { Register } from './components/register/register.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { UserService } from './services/other/user.service';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -55,7 +58,9 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     MovieComponent,
     CardMovie,
     Proximos,
-    cardResultMovie
+    cardResultMovie,
+    Login,
+    Register,
   ],
   imports: [
     BrowserModule,
@@ -63,11 +68,11 @@ const CircleProgress = NgCircleProgressModule.forRoot({
     HttpClientModule,
     CircleProgress,
     NgxPaginationModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: PathLocationStrategy 
+    useClass: PathLocationStrategy,
   }],
   bootstrap: [AppComponent]
 })

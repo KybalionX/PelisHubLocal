@@ -1,5 +1,5 @@
 .content{
-    background-color: #c2c2c2;
+    background-color: #272727;
     display: flex;
     margin-top: 12px;
     max-height: 200px;
@@ -10,13 +10,17 @@
 .content img{
     object-fit: cover;
     border-radius: 8px 0px 0px 8px;
+    width: 150px;
+    transition: width 0.4s;
 }
 
 .content .description{
     padding: 10px 4px 4px 10px;
     color: white;
     align-self: center;
+    transition: color 0.3s;
 }
+
 
 .content .description p{
     overflow: hidden;
@@ -24,4 +28,18 @@
     display: -webkit-box;
     -webkit-line-clamp: 4; /* number of lines to show */
     -webkit-box-orient: vertical;
+}
+
+.content:hover .description {
+    color: #FF9900;
+}
+
+
+.content:hover img{
+    width: 160px;
+}
+
+
+a{
+    text-decoration: none;
 }

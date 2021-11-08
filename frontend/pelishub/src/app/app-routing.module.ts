@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { Proximos } from './components/proximos/proximos.component';
 import { Busqueda } from './components/busqueda/busqueda.component';
+import { Login } from './components/login/login.component';
+import { Register } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: "movie/:movieID",
     component: MovieComponent
+  },
+  {
+    path: "login",
+    component: Login
+  },
+  {
+    path: "register",
+    component: Register
   },
   {path: "**", redirectTo: ''}
 ];
