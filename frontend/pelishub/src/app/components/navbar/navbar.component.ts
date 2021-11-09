@@ -1,24 +1,40 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppRoutingModule } from "src/app/app-routing.module";
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import { UserService } from "src/app/services/other/user.service";
 
 @Component({
     selector: "navbar",
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.css']
+    styleUrls: ['./navbar.component.css'],
+    providers : [UserService]
 })
 
-export class NavBar {
+export class NavBar{
 
     li!: any;
     list = [];
     @Input() msg: any;
     num: any;
 
+    @Input() nombreUsuario : string = "";
+
+    
+
     selected: number = 0;
 
-    constructor(private http: HttpClient, private router: Router) {
+
+
+    constructor(private http: HttpClient, private router: Router, private userService : UserService) {
+
+        this.userService.logged.subscribe((nextValue) => console.log("apart "+nextValue))
+
+
+        console.log(localStorage.getItem('id'));
+
+
+
         this.router.events.subscribe((event: Event) => {
 
             if (event instanceof NavigationEnd) {
@@ -75,5 +91,6 @@ export class NavBar {
     public ClickedNavbar(Selected: number) {
         this.selected = Selected;
     }
+
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NavBar } from "../navbar/navbar.component";
+import { UserService } from "src/app/services/other/user.service";
 
 @Component({
     selector: 'home',
@@ -11,13 +13,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HomeComponent {
 
+
     responsePopular: any;
     listPopular = [];
 
     responseTrending: any;
     listTrending = [];
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService : UserService) {
+
+        this.userService.logged.subscribe(data => console.log("elemento suscrito: "+data));
+
+        if(localStorage.getItem('id') != null){
+            //this.nombreUsuario = "REGISTERED!";
+        }
 
     }
 
@@ -30,7 +39,7 @@ export class HomeComponent {
 
     getPopular() {
 
-        var url = "https://blackmage.pythonanywhere.com/api/movie/popular/"
+        var url = "https://blackmage.pythonanywhere.com/api/movie/popular/";
         this.http.get(url)
             .toPromise()
             .then(response => {
