@@ -24,6 +24,8 @@ export class CardMovie {
     @Input()
     public vote: number = 0;
 
+    path = "";
+
     constructor() {
 
     }
@@ -36,7 +38,7 @@ export class CardMovie {
     }
 
     clicked() {
-        console.log("hello")
+        this.path = "http://localhost:4200/movie/"+this.movieID;
     }
 
 }

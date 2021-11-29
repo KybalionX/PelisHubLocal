@@ -16,6 +16,8 @@ export class UserService {
 
     logout(){
         this.logged.next(0);
+        localStorage.removeItem('id');
+
     }
 
 

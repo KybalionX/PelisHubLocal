@@ -1,4 +1,3 @@
-
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div id="container" class="container-fluid">
         <a id="icon" class="navbar-brand" href="/"><img src="assets/resources/Icon.png" alt="" srcset=""></a>
@@ -9,23 +8,44 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a (click)="ClickedNavbar(0)" routerLink="/" [ngClass]="selected == 0 ? 'nav-link active': 'nav-link'"  aria-current="page" href="#">Inicio</a>
+                    <a (click)="ClickedNavbar(0)" routerLink="/"
+                        [ngClass]="selected == 0 ? 'nav-link active': 'nav-link'" aria-current="page"
+                        href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="ClickedNavbar(1)" routerLink="/proximos" [ngClass]="selected == 1 ? 'nav-link active': 'nav-link'"  aria-current="page" href="#">Próximos</a>
+                    <a (click)="ClickedNavbar(1)" routerLink="/proximos"
+                        [ngClass]="selected == 1 ? 'nav-link active': 'nav-link'" aria-current="page"
+                        href="#">Próximos</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="ClickedNavbar(2)" routerLink="/movie" [ngClass]="selected == 2 ? 'nav-link active': 'nav-link'"  aria-current="page" href="#">Polaris</a>
+                    <a (click)="ClickedNavbar(2)" routerLink="/movie"
+                        [ngClass]="selected == 2 ? 'nav-link active': 'nav-link'" aria-current="page"
+                        href="#">Polaris</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="ClickedNavbar(3)" routerLink="/movie" [ngClass]="selected == 3 ? 'nav-link active': 'nav-link'"  aria-current="page" href="#">Squezz</a>
+                    <a (click)="ClickedNavbar(3)" routerLink="/movie"
+                        [ngClass]="selected == 3 ? 'nav-link active': 'nav-link'" aria-current="page"
+                        href="#">Squezz</a>
                 </li>
             </ul>
             <div class="d-flex">
-                <input id="inputBusqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <div *ngIf="idUser != null;">
+                    <li class="nav-item dropdown ">
+                        <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <b>{{nombreUsuario}}</b>
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarScrollingDropdown">
+                          <li><a class="dropdown-item" (click)="cerrarSesion()" href="/">Cerrar Sesion</a></li>
+                        </ul>
+                      </li>
+                </div>
+                <input id="inputBusqueda" class="form-control me-2" type="search" placeholder="Search"
+                    aria-label="Search">
                 <button (click)="open()" id="btnBuscar" class="btn btn-outline-success">Search</button>
-                <a style="color: white;" href="/"><b>{{nombreUsuario}}</b></a>
+                
+            
             </div>
+
         </div>
     </div>
 </nav>

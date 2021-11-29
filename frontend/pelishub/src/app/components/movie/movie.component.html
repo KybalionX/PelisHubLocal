@@ -10,4 +10,38 @@
             </div>
         </div>
     </div>
+    <h3 style="color: white; margin: 12px;">Compañias productoras</h3>
+    <div class="containerCompa">
+        <div *ngFor="let compa of listaProductoras;">
+            <h5 style="margin: 12px;"><b>{{compa['name']}}</b></h5>
+            <img src="{{compa['imagen']}}" alt="">
+        </div>
+    </div>
+    <br><br>
+    <h3 style="color: white; margin: 12px;">Actores Principales</h3>
+    <div class="containerActores">
+        <div *ngFor="let act of listaActores;">
+            <img src="{{act['imagen']}}" alt="" srcset="">
+            <p>{{act['original_name']}}</p>
+        </div>
+    </div>
+
+    <div class="containerComentarios">
+        <h3 style="color: white;">Comentarios</h3>
+        <div *ngFor="let com of listaComentarios;" class="comentarios">
+            <div class="comentario">
+                <h6>{{com['usuario']}}<span> &nbsp; {{com['fecha']}}</span></h6>
+                <p>{{com['comentario']}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="idUsuario != null; else elseBlock">
+            <input #comentario placeholder="Comentario..." type="text"><button #btn
+                (click)="subirComentario()">Aceptar</button>
+        </div>
+        <ng-template #elseBlock><span style="color: rgb(255, 136, 0);"><b>Para poder comentar, debes iniciar
+                    sesion!.</b></span></ng-template>
+    </div>
+
 </div>
+

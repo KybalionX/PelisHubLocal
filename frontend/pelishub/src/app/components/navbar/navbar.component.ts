@@ -8,34 +8,47 @@ import { UserService } from "src/app/services/other/user.service";
     selector: "navbar",
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css'],
-    providers : [UserService]
+    providers: [UserService]
 })
 
-export class NavBar{
+export class NavBar {
 
     li!: any;
     list = [];
     @Input() msg: any;
     num: any;
 
-    @Input() nombreUsuario : string = "";
+    @Input() nombreUsuario: string = '';
 
-    
+    idUser: number = 0;
+
 
     selected: number = 0;
 
 
 
-    constructor(private http: HttpClient, private router: Router, private userService : UserService) {
+    constructor(private http: HttpClient, private router: Router, private userService: UserService) {
 
-        this.userService.logged.subscribe((nextValue) => console.log("apart "+nextValue))
+        this.userService.logged.subscribe((nextValue) => console.log("apart " + nextValue))
 
 
         console.log(localStorage.getItem('id'));
 
 
-
         this.router.events.subscribe((event: Event) => {
+
+            this.idUser = userService.idUser as unknown as number;
+
+            console.log(this.idUser);
+
+            if (this.idUser != null) {
+                this.http.get("https://blackmage.pythonanywhere.com/api/users/?id=" + this.idUser).toPromise()
+                    .then(data => {
+                        let ds = [];
+                        ds = data as any;
+                        this.nombreUsuario = ds.usuarios[0].nombre_usuario;
+                    });
+            }
 
             if (event instanceof NavigationEnd) {
                 // Hide loading indicator
@@ -90,6 +103,13 @@ export class NavBar{
 
     public ClickedNavbar(Selected: number) {
         this.selected = Selected;
+    }
+
+    public cerrarSesion(){
+        this.userService.logout();
+        this.idUser=0;
+        console.log(this.idUser);
+        this.ClickedNavbar(0);
     }
 
 

@@ -49,7 +49,7 @@
         <div class="containerPopular scrollmenu">
 
             <div *ngFor="let trend of listTrending">
-                <card-movie style="z-index: -2;" title="{{trend['title']}}" posterPath="{{trend['enlacePoster']}}"
+                <card-movie movieID="{{trend['id']}}" style="z-index: -2;" title="{{trend['title']}}" posterPath="{{trend['enlacePoster']}}"
                     valoracion="{{trend['vote_average']}}"> </card-movie>
             </div>
 
