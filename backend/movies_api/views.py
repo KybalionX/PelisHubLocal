@@ -1,5 +1,5 @@
 
-from django.http import response, JsonResponse
+from django.http import response
 from django.shortcuts import render
 from rest_framework.views import APIView, Response
 from movies_api.models import Usuario
@@ -82,25 +82,53 @@ class Proximo(APIView):
         return Response({"data": data})
 
 
+
+
+
 class Users(APIView):
     def get(self, request,id=None, *args, **kwargs):
         gid = request.GET.get('id')
+        gcorreo = request.GET.get('correo')
 
-        if gid is None:
-            return Response({'usuarios': Usuario.objects.values()})
-        else:
+        if gid is not None:
             usuario = Usuario.objects.all().filter(id=gid)
             result = []
             for u in usuario:
                 data = {}
+                data['id'] = u.id
                 data['nombre_usuario'] = u.nombre_usuario
                 data['correo'] = u.correo
                 data['telefono'] = u.telefono
+                data['contraseña'] = u.contraseña
                 result.append(data)
             return Response({ 'usuarios':  result})
+        elif gcorreo is not None:
+            usuario = Usuario.objects.all().filter(correo=gcorreo)
+            result = []
+            for u in usuario:
+                data = {}
+                data['id'] = u.id
+                data['nombre_usuario'] = u.nombre_usuario
+                data['correo'] = u.correo
+                data['telefono'] = u.telefono
+                data['contraseña'] = u.contraseña
+                result.append(data)
+            return Response({ 'usuarios':  result})
+        else:
+            return Response({'usuarios': Usuario.objects.values()})
 
     def post(self, request):
-        print("Hiadica")
+        pNombreUsuario = self.request.data.get('nombreUsuario', None)
+        pCorreo = self.request.data.get('correo', None)
+        pTelefono = self.request.data.get('telefono', None)
+        pContraseña = self.request.data.get('contraseña', None)
+
+        usuario = Usuario(nombre_usuario = pNombreUsuario, correo=pCorreo, telefono=pTelefono, contraseña=pContraseña)
+        usuario.save()
+
+
+        return Response({'id usuario agregado':usuario.id})
+
 
 
 
